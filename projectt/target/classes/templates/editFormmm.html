@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>Edit User</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <!--css-->
+  <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+
+</head>
+<body>
+<h1>Edit</h1>
+<h2 style="color: red" th:text="${failed}"></h2>
+
+<form th:action="@{/saveUser}" th:object="${user}" method="post">
+  <p>userID: <input type="text" name ="id" th:field="*{id}" readonly/></p>
+  <p>username: <input type="text" name ="username" th:field="*{username}" readonly/></p>
+  <p>password: <input type="password" name ="password" required="required" /></p>
+  <p>confirmpassword: <input type="password"  name = "repassword" /></p>
+  <p>fullname: <input type="text" name="fullname"  th:field="*{fullname}" /></p>
+  <p>Age: <input type="text" name="age" th:field="*{Age}" /></p>
+  <p>interest: <input type="text" name="interest" th:field="*{interest}" /></p>
+  <p>sex</p>
+  <li>
+    <input type = "radio" name="sex" th:value="M" th:field="*{sex}"/>
+    <label>M</label>
+    <input type = "radio" name="sex" th:value="F" th:field="*{sex}"/>
+    <label>F</label>
+    <input type = "radio" name="sex" th:value="O" th:field="*{sex}"/>
+    <label>O</label>
+  </li>
+  <p>Other: <input type="text" name="other" th:field="*{other}" /></p>
+  <p>Role</p>
+  <li th:each="role : ${roleName}">
+    <label th:text="${role.rolename}"></label>
+    <input type="radio" name="roleName" th:value="${role.rolename}" th:field="*{role}"/>
+  </li>
+  <p><button type="submit" class="btn btn-success">Add</button></p>
+</form>
+</body>
+
+</html>

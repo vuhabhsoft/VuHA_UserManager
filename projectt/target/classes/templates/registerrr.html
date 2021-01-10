@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>To-do</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <!--css-->
+  <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<h1>Register Form</h1>
+<h2 style="color: red" th:text="${failed}"></h2>
+<form th:action="@{/addUser}" th:object="${user}" method="POST" class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+  <div>
+    <input type="text" th:field="*{username}" name="username" placeholder="User Name" required="required" maxlength="30"/>
+  </div>
+  <div>
+    <input type="password" th:field="*{password}" name="password" placeholder="Password" required="required" maxlength="30"/>
+  </div>
+  <div>
+    <input type="password"  name="repassword" placeholder="Repeat password" maxlength="30"/>
+  </div>
+  <p><button type="submit" class="btn btn-success">Add</button></p>
+</form>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>User Detail</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+ 
+
+
+
+</head>
+<body>
+<h1>Detail</h1>
+<h2 style="color: green" th:text="${success}"></h2>
+<div>
+    <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>UserName</th>
+            <th>FullName</th>  
+            <th>Age</th>  
+            <th>Interest</th>  
+            <th>Sex</th>  
+            <th>Other</th>  
+            <th>Role</th>                
+        </tr>
+        <tr th:object="${user}">
+            <td th:text="${user.id}">Id</td>
+            <td th:text="${user.username}">UserName</td>            
+            <td th:text="${user.fullname}">Fullname</td> 
+            <td th:text="${user.age}">Age</td> 
+            <td th:text="${user.interest}">Interest</td> 
+            <td th:text="${user.sex}">Sex</td> 
+            <td th:text="${user.other}">Other</td> 
+            <td th:text="${user.role}">Role</td> 
+        </tr>
+    </table>
+</div>
+
+<a th:href="@{/home}" class="btn btn-primary">Home</a>
+</body>
+
+</html>
