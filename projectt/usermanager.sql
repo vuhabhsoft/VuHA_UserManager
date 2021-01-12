@@ -1,3 +1,5 @@
+Create Database project;
+
 CREATE TABLE `role` (
   `rolename` varchar(16) NOT NULL,
   `roledescription` varchar(30) DEFAULT NULL,
