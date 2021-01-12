@@ -63,7 +63,7 @@ public class UserController {
     @RequestMapping("/user/edit/{id}")
     public String edit(Model model ,@PathVariable Integer id) {
         if(!role.getUpdateUser()){
-            model.addAttribute("failed", "You dont have the right to delete user!");
+            model.addAttribute("failed", "You dont have the right to edit user!");
             return "fail";
         }
         model.addAttribute("user", userService.getUserById(id));
@@ -74,7 +74,7 @@ public class UserController {
     public String saveUser(Model model,@ModelAttribute User user,@RequestParam String password, String repassword) {
         
         if (!password.equals(repassword)) {
-            model.addAttribute("failed", "Confirm passoword didn't match!");
+            model.addAttribute("failed", "Confirm password didn't match!");
             return "editForm";           
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
