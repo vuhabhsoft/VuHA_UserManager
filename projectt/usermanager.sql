@@ -30,3 +30,5 @@ CREATE TABLE `user` (
 insert into user value(3, "admin", "$2a$10$67ivygm58bRl90K5YCVm2.13BHpTxIv3Up/cDg7a6XyVTKNgUBgQW", "Hồ Anh Vũ", 21, "none" , "M", "none", "admin") (password:1234)
 
 insert into role value ("admin", "admin" , 1, 1, 1)
+
+insert into role value ("user", "user" , 0, 0, 0)
