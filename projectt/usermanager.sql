@@ -25,7 +25,7 @@ CREATE TABLE `user` (
   UNIQUE KEY `username` (`username`),
   KEY `rolel_idx` (`role`),
   CONSTRAINT `roleName` FOREIGN KEY (`role`) REFERENCES `role` (`rolename`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
 
 
