@@ -27,8 +27,10 @@ CREATE TABLE `user` (
   CONSTRAINT `roleName` FOREIGN KEY (`role`) REFERENCES `role` (`rolename`)
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
-insert into user value(3, "admin", "$2a$10$67ivygm58bRl90K5YCVm2.13BHpTxIv3Up/cDg7a6XyVTKNgUBgQW", "Hồ Anh Vũ", 21, "none" , "M", "none", "admin") (password:1234)
+
 
 insert into role value ("admin", "admin" , 1, 1, 1)
 
 insert into role value ("user", "user" , 0, 0, 0)
+
+insert into user value(1, "admin", "$2a$10$67ivygm58bRl90K5YCVm2.13BHpTxIv3Up/cDg7a6XyVTKNgUBgQW", "Hồ Anh Vũ", 21, "none" , "M", "none", "admin") (password:1234)
