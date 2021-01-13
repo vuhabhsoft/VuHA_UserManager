@@ -37,14 +37,20 @@
     <div class="control-group">
         <label class="control-label"  for="roleFunc"> Role Function </label>
         <div class="controls">
-          <li>
-            <label class="checkbox">create Role For User</label>
-            <input type="checkbox" name="rolefunc" th:value=1 th:field="*{createRoleUser}"/> 
-            <label class="checkbox">Update User</label>          
-            <input type="checkbox" name="rolefunc" th:value=1 th:field="*{updateUser}"/>
-            <label class="checkbox">Delete User</label>
-            <input type="checkbox" name="rolefunc" th:value=1 th:field="*{deleteUser}"/>
-          </li>
+          <ul>
+            <li>
+              <input type="checkbox" name="rolefunc" th:value=1 th:field="*{createRoleUser}" />
+              <label>create Role For User</label>
+            </li>
+            <li>
+              <input type="checkbox" name="rolefunc" th:value=1 th:field="*{updateUser}" />
+              <label>Update User</label>
+            </li>
+            <li>
+              <input type="checkbox" name="rolefunc" th:value=1 th:field="*{deleteUser}" />
+              <label>Delete User</label>
+            </li>
+          </ul> 
         </div>   
     </div>
 

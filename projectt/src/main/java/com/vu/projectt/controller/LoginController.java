@@ -1,7 +1,6 @@
 package com.vu.projectt.controller;
 
 import com.vu.projectt.model.User;
-import com.vu.projectt.repository.UserRepository;
 import com.vu.projectt.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class LoginController {
 
-    @Autowired
-    private UserRepository userRepository;
 
     @Autowired
     private UserService userService;
@@ -48,7 +45,7 @@ public class LoginController {
             model.addAttribute("user", new User());
             return "register";
         }
-        if (userRepository.findByUsername(username) != null) {
+        if (userService.findByUserName(username) != null) {
             model.addAttribute("failed", "Username existed!");
             model.addAttribute("user", new User());
             return "register";

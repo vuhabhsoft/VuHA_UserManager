@@ -35,12 +35,14 @@ public class User {
         this.password = password;
         this.role=role;
     }
-
+    
     public User() {
     }
 
-    public User(String password, String fullname, Integer age, String interest, String sex, String other, String role) {
-        this.password = password;
+    public User(Integer id, String username, String fullname, Integer age, String interest, String sex, String other,
+            String role) {
+        this.id = id;
+        this.username = username;
         this.fullname = fullname;
         this.age = age;
         this.interest = interest;
@@ -48,5 +50,5 @@ public class User {
         this.other = other;
         this.role = role;
     }
-    
+
 }

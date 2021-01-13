@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Role List</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+  <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"
+    id="bootstrap-css">
+
+<body>
+  <h1>Role List</h1>
+  <div>
+    <table class="table table-striped">
+      <tr>
+        <th>Id</th>
+        <th>UserName</th>
+        <th>Create User</th>
+        <th>Update User</th>
+        <th>Delete User</th>
+      </tr>
+      <tr th:each="role : ${roleList}">
+        <td th:text="${role.rolename}">Id</td>
+        <td th:text="${role.roleDescription}">title</td>
+        <td th:text="${role.createRoleUser}">Create User</td>
+        <td th:text="${role.updateUser}">Update User</td>
+        <td th:text="${role.deleteUser}">Delete User</td>
+        <td><a th:href="${'/role/edit/' + role.rolename}">Edit</a></td>
+      </tr>
+    </table>
+  </div>
+
+  <span>
+    <a th:href="@{/createRole}" method="GET" class="btn btn-primary">Create a Role</a>
+    <a th:href="@{/logout}" method="GET" class="btn btn-primary">Log out</a>
+    <a th:href="@{/redirect}" class="btn btn-primary">Return to home</a>
+  </span>  
+
+</body>
+
+</html>

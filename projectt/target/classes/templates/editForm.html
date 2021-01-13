@@ -1,120 +1,130 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
   <meta charset="UTF-8" />
   <title>Edit User</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-  <!--css-->
 
-<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
 
-<!------ Include the above in your HEAD tag ---------->
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"
+    id="bootstrap-css">
 
-<form class="form-horizontal" th:action="@{/saveUser}" th:object="${user}" method="post">
-  <fieldset>
-    <div id="legend">
-      <legend class="">Edit User</legend>
-    </div>
-    <h2 style="color: red" th:text="${failed}"></h2>
-    <div class="control-group">
-        <label class="control-label"  for="username">UserId</label>
+
+
+  <form class="form-horizontal" th:action="@{/saveUser}" th:object="${user}" method="post">
+    <fieldset>
+      <div id="legend">
+        <legend class="">Edit User</legend>
+      </div>
+      <h2 style="color: red" th:text="${failed}"></h2>
+      <div class="control-group">
+        <label class="control-label" for="username">Username</label>
         <div class="controls">
-          <input type="text" id="userid" name ="id" th:field="*{id}" readonly
+          <input type="text" id="username" name="username" th:field="*{username}" readonly class="input-xlarge">
+        </div>
+      </div>
+
+      <div class="control-group" hidden>
+        
+        <label class="control-label">Password</label>
+        <div class="controls">
+          <input type="text"  th:field="*{password}" placeholder="Password">
+        </div>
+      </div>
+
+      <div class="control-group">
+        
+        <label class="control-label" for="password">Password</label>
+        <div class="controls">
+          <input type="password"    name="Passwords" placeholder="Password"  class="input-xlarge" >
+        </div>
+      </div>
+   
+      <div class="control-group">
+        
+        <label class="control-label"  for="password_confirm"> Confirm Password </label>
+        <div class="controls">
+          <input type="password" name="repassword" placeholder="Repeat password" class="input-xlarge">
+        </div>
+      </div>
+
+      <div class="control-group">
+        
+        <label class="control-label" for="fullname"> Full Name </label>
+        <div class="controls">
+          <input type="text" id="fullname" name="fullname" th:field="*{fullname}" class="input-xlarge">
+        </div>
+      </div>
+
+      <div class="control-group">
+        
+        <label class="control-label" for="age"> Age </label>
+        <div class="controls">
+          <input type="text" id="age" name="age" th:field="*{Age}" class="input-xlarge">
+        </div>
+      </div>
+
+      <div class="control-group">
+        
+        <label class="control-label" for="interest"> Interest </label>
+        <div class="controls">
+          <input type="text" id="interest" name="interest" th:field="*{interest}" class="input-xlarge">
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label" for="Sex"> Sex </label>
+        <div class="controls">
+          <ul>
+            <li>
+              <input type="radio" name="sex" th:value="M" th:field="*{sex}" />
+              <label>M</label>
+            </li>
+            <li>
+              <input type="radio" name="sex" th:value="F" th:field="*{sex}" />
+              <label>F</label>
+            </li>
+            <li>
+              <input type="radio" name="sex" th:value="O" th:field="*{sex}" />
+              <label>O</label>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="control-group">
+        
+        <label class="control-label" for="other"> Other </label>
+        <div class="controls">
+          <input type="text" id="other" name="other" th:field="*{other}" class="input-xlarge">
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label" for="Role"> Role </label>
+        <div class="controls">
+          <ul>
+            <li th:each="role : ${roleName}">
+              <input type="radio" name="roleName" th:value="${role.rolename}" th:field="*{role}" />
+              <label th:text="${role.rolename}"></label>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <div class="controls">
+          <button class="btn btn-success">Edit</button>
+        </div>
+      </div>
+      <div class="control-group" >
+        <div class="controls">
+          <input type="hidden" id="userid" name ="id" th:field="*{id}" readonly
            class="input-xlarge">
         </div>
       </div>
 
-    <div class="control-group">
-      <!-- Username -->
-      <label class="control-label"  for="username">Username</label>
-      <div class="controls">
-        <input type="text" id="username" name ="username" th:field="*{username}" readonly
-         class="input-xlarge">
-      </div>
-    </div>
- 
-    <div class="control-group">
-      <!-- Password-->
-      <label class="control-label" for="password">Password</label>
-      <div class="controls">
-        <input type="password" id="password"  name ="password" required="required"
-         class="input-xlarge">
-      </div>
-    </div>
- 
-    <div class="control-group">
-      <!-- Password -->
-      <label class="control-label"  for="password_confirm"> Confirm Password </label>
-      <div class="controls">
-        <input type="password" id="password_confirm" name = "repassword" class="input-xlarge">
-      </div>
-    </div>
-    
-    <div class="control-group">
-        <!-- Password -->
-        <label class="control-label"  for="fullname"> Full Name </label>
-        <div class="controls">
-          <input type="text" id="fullname" name="fullname"  th:field="*{fullname}" class="input-xlarge">
-        </div>
-    </div>
-
-    <div class="control-group">
-        <!-- Password -->
-        <label class="control-label"  for="age"> Age </label>
-        <div class="controls">
-          <input type="text" id="age" name="age" th:field="*{Age}" class="input-xlarge">
-        </div>
-    </div>
-
-    <div class="control-group">
-        <!-- Password -->
-        <label class="control-label"  for="interest"> Interest </label>
-        <div class="controls">
-          <input type="text" id="interest" name="interest" th:field="*{interest}" class="input-xlarge">
-        </div>
-    </div>
-
-    <div class="control-group">
-        <label class="control-label"  for="Sex"> Sex </label>
-        </br> </br>
-        <div class="controls">
-        
-        <li>
-            <label>M</label>
-            <input type = "radio" name="sex" th:value="M" th:field="*{sex}"/>
-            <label>F</label>         
-            <input type = "radio" name="sex" th:value="F" th:field="*{sex}"/>
-            <label>O</label>           
-            <input type = "radio" name="sex" th:value="O" th:field="*{sex}"/>           
-        </li>
-        </div>
-    </div>
-
-    <div class="control-group">
-        <!-- Password -->
-        <label class="control-label"  for="other"> Other </label>
-        <div class="controls">
-          <input type="text" id="other" name="other" th:field="*{other}" class="input-xlarge">
-        </div>
-    </div>
-    
-    <div class="control-group">
-      <label class="control-label"  for="Role"> Role </label>
-    </br> </br>
-      <div class="controls">
-        <li th:each="role : ${roleName}">
-          <label th:text="${role.rolename}"></label>
-          <input type="radio" name="roleName" th:value="${role.rolename}" th:field="*{role}"/>
-        </li>
-        </div>
-    </div>
-
-    <div class="control-group">
-      <!-- Button -->
-      <div class="controls">
-        <button class="btn btn-success">Register</button>
-      </div>
-    </div>
-  </fieldset>
-</form>
+    </fieldset>
+  </form>

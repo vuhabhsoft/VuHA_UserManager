@@ -2,18 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8" />
-  <title>To-do</title>
+  <title>success</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
   <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
 
 </head>
 <body>
-<h1>To-do</h1>
+<h1>success</h1>
 <h1 style="color: green" th:text="${success}"></h1>
-
+<span>
 <a th:href="@{/redirect}" class="btn btn-primary">Return to home</a>
-
+<a th:href="@{/roleList}" method="GET" class="btn btn-primary">Role List</a>
+</span>
 </body>
 
 </html>

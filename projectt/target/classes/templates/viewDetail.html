@@ -1,45 +1,89 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
   <meta charset="UTF-8" />
-  <title>User Detail</title>
+  <title>View User</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-  <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
- 
+  <!--css-->
 
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"
+    id="bootstrap-css">
 
+  <!------ Include the above in your HEAD tag ---------->
+    
+  <form class="form-horizontal" th:action="@{/home}" th:object="${user}" method="post">
+    <fieldset>
+      <div id="legend">
+        <legend class="">View User</legend>
+      </div>
+      <h2 style="color: red" th:text="${failed}"></h2>
 
-</head>
-<body>
-<h1>Detail</h1>
-<h2 style="color: green" th:text="${success}"></h2>
-<div>
-    <table class="table table-striped">
-        <tr>
-            <th>Id</th>
-            <th>UserName</th>
-            <th>FullName</th>  
-            <th>Age</th>  
-            <th>Interest</th>  
-            <th>Sex</th>  
-            <th>Other</th>  
-            <th>Role</th>                
-        </tr>
-        <tr th:object="${user}">
-            <td th:text="${user.id}">Id</td>
-            <td th:text="${user.username}">UserName</td>            
-            <td th:text="${user.fullname}">Fullname</td> 
-            <td th:text="${user.age}">Age</td> 
-            <td th:text="${user.interest}">Interest</td> 
-            <td th:text="${user.sex}">Sex</td> 
-            <td th:text="${user.other}">Other</td> 
-            <td th:text="${user.role}">Role</td> 
-        </tr>
-    </table>
-</div>
+      <div class="control-group">
+        <!-- Username -->
+        <label class="control-label" for="username">Username</label>
+        <div class="controls">
+          <input type="text" id="username" name="username" th:field="*{username}" readonly class="input-xlarge">
+        </div>
+      </div>
 
-<a th:href="@{/home}" class="btn btn-primary">Home</a>
-</body>
+      <div class="control-group">
+        
+        <label class="control-label" for="fullname"> Full Name </label>
+        <div class="controls">
+          <input type="text" id="fullname" name="fullname" th:field="*{fullname}" class="input-xlarge" readonly>
+        </div>
+      </div>
 
-</html>
+      <div class="control-group">
+        
+        <label class="control-label" for="age"> Age </label>
+        <div class="controls">
+          <input type="text" id="age" name="age" th:field="*{Age}" class="input-xlarge" readonly>
+        </div>
+      </div>
+
+      <div class="control-group">
+        
+        <label class="control-label" for="interest"> Interest </label>
+        <div class="controls">
+          <input type="text" id="interest" name="interest" th:field="*{interest}" class="input-xlarge" readonly>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        
+        <label class="control-label" for="sex"> Sex </label>
+        <div class="controls">
+          <input type="text" id="sex" name="sex" th:field="*{sex}" class="input-xlarge" readonly>
+        </div>
+      </div>
+      
+
+      <div class="control-group">
+        
+        <label class="control-label" for="other"> Other </label>
+        <div class="controls">
+          <input type="text" id="other" name="other" th:field="*{other}" class="input-xlarge" readonly>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <!-- Password -->
+        <label class="control-label" for="interest"> Role </label>
+        <div class="controls">
+          <input type="text" id="role" name="role" th:field="*{role}" class="input-xlarge" readonly>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <!-- Button -->
+        <div class="controls">
+          <button class="btn btn-success">Home</button>
+        </div>
+      </div>
+      
+
+    </fieldset>
+  </form>
